@@ -43,7 +43,7 @@ Este repositório contém o código-fonte de um aplicativo desenvolvido durante 
 
 ```bash
 # Clone este repositório
-$ git clone https://github.com/lucasdonay/dw-barbershop.git
+$ git clone https://github.com/lucasdonay/dw_barbershop.git
 
 # Acesse a pasta do projeto no terminal/cmd
 $ cd dw_barbershop
