@@ -46,7 +46,7 @@ Este repositório contém o código-fonte de um aplicativo desenvolvido durante 
 $ git clone https://github.com/lucasdonay/dw-barbershop.git
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd dw11-barbershop
+$ cd dw_barbershop
 
 # Instale as dependências
 $ flutter pub get
@@ -57,7 +57,7 @@ $ flutter run
 ### Rodando a aplicação backend json_rest_server
 
 ```bash
-# Rode o comando abaixo
+# Rode o comando abaixo no cmd dentro da pasta
 $ json_rest_server
 
 # Lembre-se de alterar o ip gerado em RestClient
