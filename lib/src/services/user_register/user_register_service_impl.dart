@@ -8,11 +8,11 @@ import 'package:dw_barbershop/src/services/users_login/user_login_service.dart';
 
 import './user_register_service.dart';
 
-class UserRegisterServiceImpl implements UserRegisterService {
+class UserRegisterAdmServiceImpl implements UserRegisterService {
   final UserRepository userRepository;
   final UserLoginService userLoginService;
 
-  UserRegisterServiceImpl({
+  UserRegisterAdmServiceImpl({
     required this.userRepository,
     required this.userLoginService,
   });
