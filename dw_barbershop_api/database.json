@@ -29,6 +29,13 @@
       "email": "donay@ingressolive.com",
       "password": "123123",
       "profile": "ADM"
+    },
+    {
+      "id": 8,
+      "name": "teste123",
+      "email": "teste@gmail.com",
+      "password": "123123",
+      "profile": "ADM"
     }
   ],
   "adm_users": [],
@@ -53,6 +60,22 @@
         20,
         12,
         13
+      ]
+    },
+    {
+      "id": 3,
+      "user_id": "8",
+      "name": "teste 5 barbearia",
+      "email": "teste5barber@gmail.com",
+      "opening_days": [
+        "Seg",
+        "Qua",
+        "Qui"
+      ],
+      "opening_hours": [
+        18,
+        19,
+        20
       ]
     }
   ],
