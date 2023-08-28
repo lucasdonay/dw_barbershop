@@ -3,11 +3,14 @@ import 'package:dw_barbershop/src/core/ui/constants.dart';
 import 'package:flutter/material.dart';
 
 class HomeHeader extends StatelessWidget {
-  const HomeHeader({super.key});
+  final bool hideFilter;
+
+  const HomeHeader({super.key, this.hideFilter = true});
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.only(bottom: 20),
       padding: const EdgeInsets.all(24),
       width: MediaQuery.sizeOf(context).width,
       decoration: const BoxDecoration(
@@ -17,7 +20,7 @@ class HomeHeader extends StatelessWidget {
         ),
         color: Colors.black,
         image: DecorationImage(
-          image: AssetImage(ImageCOnstants.backgroundChair),
+          image: AssetImage(ImageConstants.backgroundChair),
           fit: BoxFit.cover,
           opacity: 0.5,
         ),
@@ -93,18 +96,24 @@ class HomeHeader extends StatelessWidget {
               fontSize: 38,
             ),
           ),
-          const SizedBox(
-             height: 24,
+          Offstage(
+            offstage: hideFilter,
+            child: const SizedBox(
+              height: 24,
+            ),
           ),
-          TextFormField(
-            decoration: const InputDecoration(
-              label: Text('Buscar Colaborador'),
-              suffixIcon: Padding(
-                padding: EdgeInsets.only(right: 24.0),
-                child: Icon(
-                  BarbershopIcons.search,
-                  color: ColorsConstants.brow,
-                  size: 26,
+          Offstage(
+            offstage: hideFilter,
+            child: TextFormField(
+              decoration: const InputDecoration(
+                label: Text('Buscar Colaborador'),
+                suffixIcon: Padding(
+                  padding: EdgeInsets.only(right: 24.0),
+                  child: Icon(
+                    BarbershopIcons.search,
+                    color: ColorsConstants.brow,
+                    size: 26,
+                  ),
                 ),
               ),
             ),

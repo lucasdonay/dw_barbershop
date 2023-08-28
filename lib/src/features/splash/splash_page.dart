@@ -32,6 +32,10 @@ class _SplashPageState extends ConsumerState<SplashPage> {
     super.initState();
   }
 
+  void _redirect() {
+
+  }
+
   @override
   Widget build(BuildContext context) {
     ref.listen(splashVmProvider, (_, state) {
@@ -63,7 +67,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
       body: DecoratedBox(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(ImageCOnstants.backgroundChair),
+            image: AssetImage(ImageConstants.backgroundChair),
             fit: BoxFit.cover,
             opacity: 0.2,
           ),
@@ -74,25 +78,25 @@ class _SplashPageState extends ConsumerState<SplashPage> {
             curve: Curves.easeIn,
             opacity: _animationOpacityLogo,
             onEnd: () {
-              Navigator.of(context).pushAndRemoveUntil(
-                PageRouteBuilder(
-                  settings: const RouteSettings(name: '/auth/login'),
-                  pageBuilder: (
-                    context,
-                    animation,
-                    secondaryAnimation,
-                  ) {
-                    return const LoginPage();
-                  },
-                  transitionsBuilder: (_, animation, __, child) {
-                    return FadeTransition(
-                      opacity: animation,
-                      child: child,
-                    );
-                  },
-                ),
-                (route) => false,
-              );
+              // Navigator.of(context).pushAndRemoveUntil(
+              //   PageRouteBuilder(
+              //     settings: const RouteSettings(name: '/auth/login'),
+              //     pageBuilder: (
+              //       context,
+              //       animation,
+              //       secondaryAnimation,
+              //     ) {
+              //       return const LoginPage();
+              //     },
+              //     transitionsBuilder: (_, animation, __, child) {
+              //       return FadeTransition(
+              //         opacity: animation,
+              //         child: child,
+              //       );
+              //     },
+              //   ),
+              //   (route) => false,
+              // );
             },
             child: AnimatedContainer(
               duration: const Duration(seconds: 4),
@@ -100,7 +104,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
               height: _logoAnimationHeight,
               curve: Curves.linearToEaseOut,
               child: Image.asset(
-                ImageCOnstants.imgLogo,
+                ImageConstants.imgLogo,
                 fit: BoxFit.cover,
               ),
             ),
