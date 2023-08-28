@@ -28,6 +28,7 @@ class WeekdaysPanel extends StatelessWidget {
                 ButtonDay(label: 'Terc', openDaySelect: openDayPressed),
                 ButtonDay(label: 'Qua', openDaySelect: openDayPressed),
                 ButtonDay(label: 'Qui', openDaySelect: openDayPressed),
+                ButtonDay(label: 'Sex', openDaySelect: openDayPressed),
                 ButtonDay(label: 'Sab', openDaySelect: openDayPressed),
                 ButtonDay(label: 'Dom', openDaySelect: openDayPressed),
               ],

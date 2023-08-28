@@ -91,10 +91,10 @@ class _BarbershopRegisterPageState
                   height: 10,
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.28,
+                  height: MediaQuery.sizeOf(context).height * 0.24,
                   child: HoursPanel(
-                    startTime: 6,
-                    endTime: 23,
+                    startTime: 8,
+                    endTime: 22,
                     onHourPressed: (int value) {
                       barberShopRegisterVM.addOrRemoveOpenHours(value);
                     },

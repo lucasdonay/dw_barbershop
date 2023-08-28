@@ -1,99 +1,104 @@
+import 'package:dw_barbershop/src/core/providers/application_providers.dart';
 import 'package:dw_barbershop/src/core/ui/barbershop_icons.dart';
 import 'package:dw_barbershop/src/core/ui/constants.dart';
+import 'package:dw_barbershop/src/core/ui/widgets/barbershop_loader.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class HomeHeader extends StatelessWidget {
+class HomeHeader extends ConsumerWidget {
+  const HomeHeader({super.key}) : hideFilter = true;
+  const HomeHeader.withoutFilter({super.key}) : hideFilter = false;
+
   final bool hideFilter;
 
-  const HomeHeader({super.key, this.hideFilter = true});
-
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final barberShop = ref.watch(getMyBarbershopProvider);
+
     return Container(
-      margin: const EdgeInsets.only(bottom: 20),
-      padding: const EdgeInsets.all(24),
       width: MediaQuery.sizeOf(context).width,
+      padding: const EdgeInsets.all(24),
       decoration: const BoxDecoration(
+        color: Colors.black,
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(32),
           bottomRight: Radius.circular(32),
         ),
-        color: Colors.black,
         image: DecorationImage(
-          image: AssetImage(ImageConstants.backgroundChair),
           fit: BoxFit.cover,
           opacity: 0.5,
+          image: AssetImage(
+            ImageConstants.backgroundChair,
+          ),
         ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(
-            height: 30,
-          ),
-          Row(
-            children: [
-              const CircleAvatar(
-                backgroundColor: ColorsConstants.greyLight,
-                child: SizedBox.shrink(),
-              ),
-              const SizedBox(
-                width: 16,
-              ),
-              const Flexible(
-                child: Text(
-                  'Lucas Donay Gonçalves da Silva Miranda',
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600,
+          barberShop.maybeWhen(
+            orElse: () => const Center(
+              child: BarbershopLoader(),
+            ),
+            data: (barbershop) => Row(
+              children: [
+                const CircleAvatar(
+                  backgroundColor: Color(0xffbdbdbd),
+                  child: SizedBox.shrink(),
+                ),
+                const SizedBox(width: 16),
+                Flexible(
+                  child: Text(
+                    barbershop.name,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(
-                width: 16,
-              ),
-              const Expanded(
-                child: Text(
-                  'editar',
-                  style: TextStyle(
+                const SizedBox(width: 16),
+                const Expanded(
+                  child: Text(
+                    'Editar',
+                    style: TextStyle(
+                      color: ColorsConstants.brow,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    BarbershopIcons.exit,
                     color: ColorsConstants.brow,
-                    fontSize: 13,
-                    fontWeight: FontWeight.w500,
+                    size: 32,
                   ),
                 ),
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  BarbershopIcons.exit,
-                  color: ColorsConstants.brow,
-                  size: 26,
-                ),
-              )
-            ],
-          ),
-          const SizedBox(
-            height: 24,
-          ),
-          const Text(
-            'Bem Vindo',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
+              ],
             ),
           ),
           const SizedBox(
             height: 24,
           ),
           const Text(
-            'Agende um cliente',
+            'Bem-vindo',
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w500,
+              fontSize: 18,
+            ),
+          ),
+          const SizedBox(
+            height: 24,
+          ),
+          const Text(
+            'Agende um Cliente',
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.w600,
-              fontSize: 38,
+              fontSize: 40,
             ),
           ),
           Offstage(
@@ -106,18 +111,17 @@ class HomeHeader extends StatelessWidget {
             offstage: hideFilter,
             child: TextFormField(
               decoration: const InputDecoration(
-                label: Text('Buscar Colaborador'),
+                hintText: 'Buscar colaborador',
                 suffixIcon: Padding(
                   padding: EdgeInsets.only(right: 24.0),
                   child: Icon(
                     BarbershopIcons.search,
                     color: ColorsConstants.brow,
-                    size: 26,
                   ),
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

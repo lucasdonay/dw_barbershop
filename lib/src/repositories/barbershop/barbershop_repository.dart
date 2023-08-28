@@ -5,7 +5,7 @@ import 'package:dw_barbershop/src/model/barbershop_model.dart';
 import 'package:dw_barbershop/src/model/user_model.dart';
 
 abstract interface class BarbershopRepository {
-  Future<Either<RepositoryException, BarbershopModel>> getMyBarberShop(
+  Future<Either<RepositoryException, BarbershopModel>> getMyBarbershop(
       UserModel userModel);
 
   Future<Either<RepositoryException, Nil>> save(

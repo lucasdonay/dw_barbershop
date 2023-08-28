@@ -55,7 +55,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
         error: (error, stackTrace) {
           log('Erro ao validar login', error: error, stackTrace: stackTrace);
           Messages.showError('Erro ao validar o login', context);
-          _redirect('auth/login');
+          _redirect('/auth/login');
         },
         data: (data) {
           switch (data) {
@@ -64,7 +64,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
             case SplashState.loggedEmployee:
               _redirect('/home/eployee');
             case _:
-              _redirect('auth/login');
+              _redirect('/auth/login');
           }
         },
       );

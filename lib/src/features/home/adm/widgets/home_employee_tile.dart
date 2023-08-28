@@ -28,15 +28,10 @@ class HomeEmployeeTile extends StatelessWidget {
               image: const DecorationImage(
                 fit: BoxFit.cover,
                 image: AssetImage(ImageConstants.avatar),
-                
-                // switch (employee.avatar) {
-                //   final avatar => NetworkImage(avatar),
-                //   _ => const AssetImage(ImageConstants.avatar),
-                // } as ImageProvider<Object>,
               ),
             ),
           ),
-          const SizedBox(width:  10),
+          const SizedBox(width: 10),
           Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

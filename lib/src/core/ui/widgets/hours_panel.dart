@@ -33,8 +33,8 @@ class HoursPanel extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 2.0),
             child: Wrap(
-              spacing: 10,
-              runSpacing: 16,
+              spacing: 5,
+              runSpacing: 10,
               children: [
                 for (int i = startTime; i <= endTime; i++)
                   TimeButton(

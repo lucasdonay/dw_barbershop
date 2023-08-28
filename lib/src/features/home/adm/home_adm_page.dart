@@ -20,10 +20,7 @@ class HomeAdmPage extends StatelessWidget {
       ),
       body: CustomScrollView(
         slivers: [
-          const SliverToBoxAdapter(
-              child: HomeHeader(
-                hideFilter: true,
-              )),
+          const SliverToBoxAdapter(child: HomeHeader.withoutFilter()),
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, index) => const HomeEmployeeTile(),
