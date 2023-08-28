@@ -22,12 +22,12 @@ class HomeAdmPage extends StatelessWidget {
         slivers: [
           const SliverToBoxAdapter(
               child: HomeHeader(
-            hideFilter: true,
-          )),
+                hideFilter: true,
+              )),
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, index) => const HomeEmployeeTile(),
-              childCount: 7,
+              childCount: 20,
             ),
           ),
         ],
